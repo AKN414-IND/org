@@ -36,23 +36,23 @@ function parseRoot(name) {
 }
 
 function parseSuffix(name) {
-    if (name.includes('ane')) {
+    if (name.endsWith('ane')) {
         return 'ane';
-    } else if (name.includes('ene')) {
+    } else if (name.endsWith('ene')) {
         return 'ene';
-    } else if (name.includes('yne')) {
+    } else if (name.endsWith('yne')) {
         return 'yne';
-    } else if (name.includes('ol')) {
+    } else if (name.endsWith('ol')) {
         return 'ol';
-    } else if (name.includes('thiol')) {
+    } else if (name.endsWith('thiol')) {
         return 'thiol';
-    } else if (name.includes('ether')) {
+    } else if (name.endsWith('ether')) {
         return 'ether';
-    } else if (name.includes('al')) {
+    } else if (name.endsWith('al')) {
         return 'al';
-    } else if (name.includes('one')) {
+    } else if (name.endsWith('one')) {
         return 'one';
-    } else if (name.includes('oic acid')) {
+    } else if (name.endsWith('oic acid')) {
         return 'oic acid';
     } else {
         return null;
@@ -85,13 +85,11 @@ function constructFormula(root, suffix) {
         case 'oic acid':
             hydrogenCount = 2 * carbonCount;
             return `C${carbonCount}H${hydrogenCount}COOH`;
-        
         default:
-            return `Complex ether formula calculation needed`;
+            return `Complex calculation needed`;
     }
+    return `C${carbonCount}H${hydrogenCount}`;
 }
-
-
 
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('find-formula').addEventListener('click', calculateFormula);
